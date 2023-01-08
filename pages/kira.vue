@@ -1,18 +1,7 @@
-<template>
-  <h1>CHINCHIN!!!!!</h1>
-  <ul>
-    <li v-for="album in albums" :key="album.id">{{ album.title }}</li>
-  </ul>
-</template>
-
 <script setup lang="ts">
 import axios from 'axios'
 
-interface Album {
-  userId: number
-  id: number
-  title: string
-}
+import { Album } from '~~/types/album'
 
 const albums = ref<Album[]>([])
 
@@ -28,3 +17,10 @@ onMounted(async () => {
   console.log('albums', albums.value)
 })
 </script>
+
+<template>
+  <h1>CHINCHIN!!!!!</h1>
+  <ul>
+    <li v-for="album in albums" :key="album.id">{{ album.title }}</li>
+  </ul>
+</template>

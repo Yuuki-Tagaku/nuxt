@@ -1,22 +1,7 @@
-<template>
-  <ul>
-    <li v-for="photo in photos" :key="photo.albumId">
-      <div>{{ photo.title }}</div>
-      <img :src="photo.thumbnailUrl" />
-    </li>
-  </ul>
-</template>
-
 <script setup lang="ts">
 import axios from 'axios'
 
-interface Photo {
-  albumId: number
-  id: number
-  title: string
-  url: string
-  thumbnailUrl: string
-}
+import { Photo } from '~~/types/photo'
 
 const photos = ref<Photo[]>([])
 
@@ -31,3 +16,12 @@ onMounted(async () => {
   console.log('res', photos.value)
 })
 </script>
+
+<template>
+  <ul>
+    <li v-for="photo in photos" :key="photo.albumId">
+      <div>{{ photo.title }}</div>
+      <img :src="photo.thumbnailUrl" />
+    </li>
+  </ul>
+</template>

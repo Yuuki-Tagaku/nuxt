@@ -1,20 +1,7 @@
-<template>
-  <ul>
-    <li v-for="todo in todos" :key="todo.id">
-      {{ todo.title }}
-    </li>
-  </ul>
-</template>
-
 <script setup lang="ts">
 import axios from 'axios'
 
-interface Todo {
-  userId: number
-  id: number
-  title: string
-  completed: boolean
-}
+import { Todo } from '~~/types/todo'
 
 const todos = ref<Todo[]>([])
 
@@ -29,3 +16,11 @@ onMounted(async () => {
   console.log('res', todos.value)
 })
 </script>
+
+<template>
+  <ul>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.title }}
+    </li>
+  </ul>
+</template>

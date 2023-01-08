@@ -1,22 +1,7 @@
-<template>
-  <ul>
-    <li v-for="comment in comments" :key="comment.id">
-      <div>{{ comment.name }}</div>
-      <div>{{ comment.email }}</div>
-    </li>
-  </ul>
-</template>
-
 <script setup lang="ts">
 import axios from 'axios'
 
-interface Comment {
-  postId: number
-  id: number
-  name: string
-  email: string
-  body: string
-}
+import { Comment } from '~~/types/comment'
 
 const comments = ref<Comment[]>([])
 
@@ -31,3 +16,12 @@ onMounted(async () => {
   console.log('comments', comments.value)
 })
 </script>
+
+<template>
+  <ul>
+    <li v-for="comment in comments" :key="comment.id">
+      <div>{{ comment.name }}</div>
+      <div>{{ comment.email }}</div>
+    </li>
+  </ul>
+</template>
